@@ -16,6 +16,12 @@ body {
     overflow-x: hidden;
 }
 
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 section {
     margin: 10px;
     padding: var(--common_padding);
@@ -42,18 +48,7 @@ aside {
 
 @media (min-width: 581px){ 
 
-    /* for float section from 581px */
-    .float__section::after {
-        content: "";
-        display: table;
-        clear: both;
-    } 
-
-    .float__section__blocks::after {
-        content: "";
-        display: table;
-        clear: both;
-    } 
+    /* for float section from 581px */ 
 
     .float__section__blocks div{
         float: left;
@@ -121,6 +116,7 @@ aside {
         width: calc(70% - (var(--space_btwn_blocks)));
         margin-right: var(--space_btwn_blocks);
     }
+
     .flex__section aside {
         width: 30%;
     }
@@ -161,12 +157,13 @@ aside {
 
     /* for flex-block section from 1024px */
 
-    .flex__section__blocks {
-        flex-wrap: nowrap;
-    }
 
     .flex__section__blocks {
         width: calc(80% - (var(--space_btwn_blocks)));
+    }
+
+    .flex__section__blocks div {
+        width: calc(100%/2);
     }
 
     .flex__section aside {
